@@ -1,4 +1,6 @@
 let randInt, comChoice, userChoice;
+let totalGameRounds;
+let roundResult, playerScore, comScore;
 
 // randomly return Rock, Paper or Scissors
 function comPlay(){
@@ -19,7 +21,7 @@ function comPlay(){
     }
 }
 
-//get user selection
+// process user selection
 function userPlay(userInput){
     switch(String(userInput).toUpperCase()){
         case 'ROCK':
@@ -32,21 +34,129 @@ function userPlay(userInput){
             return('Scissors');
             break;
         default:
-            alert("Please enter \'Rock\', \'Paper\' or \'Scissors\'");
+            alert("Please only enter \'Rock\', \'Paper\' or \'Scissors\'");
             return('Invalid');
             break;
     }
 }
 
-//play a single round
+// play a single round
+// return values:
+// 0: com wins, 1: player wins, 
+// 2:draw, 3:invalid user input(com wins)
 function playRound(playerSelection, comSelection){
     comChoice = comPlay();
     userChoice = userPlay(prompt("Please enter \'Rock\', \'Paper\' or \'Scissors\'"));
-    console.log(comChoice + '  ' + userChoice);
-//return round winner
+    console.log("user: " + userChoice + " COM: " + comChoice);
+    switch(userChoice){
+        case 'Rock':
+            switch(comChoice){
+                case 'Rock':
+                    return 2;
+                    break;
+                case 'Paper':
+                    return 0;
+                    break;
+                case 'Scissors':
+                    return 1;
+                    break;
+            }
+            break;
+        case 'Paper':
+            switch(comChoice){
+                case 'Rock':
+                    return 1;
+                    break;
+                case 'Paper':
+                    return 2;
+                    break;
+                case 'Scissors':
+                    return 0;
+                    break;
+            }
+            break;
+        case 'Scissors':
+            switch(comChoice){
+                case 'Rock':
+                    return 0;
+                    break;
+                case 'Paper':
+                    return 1;
+                    break;
+                case 'Scissors':
+                    return 2;
+                    break;
+            }
+            break;
+        default:
+            return 3;
+            break;
+    }
 }
 
-//play multiple rounds and keep scores
+// show user and COM choices
+function showChoice(){
+    if(userChoice==='Invalid'){
+        alert('You entered an invalid choice !');
+    }
+    else{
+        alert('You chose ' + userChoice + ' ! COM chose ' + comChoice + ' !');
+    } 
+}
+
+// show round winner
+function showRoundWinner(result){
+    switch(result){
+        case 0:
+        case 3:
+            alert('COM wins !');
+            break;
+        case 1:
+            alert('You win !');
+            break;
+        case 2:
+            alert('DRAW !!');
+            break;
+        default:break;
+    }
+}
+
+totalGameRounds = 5;
+
+// play multiple rounds and keep scores
 function game(){
-//return game winner
+    playerScore = 0;
+    comScore = 0;
+    
+    for(i=0; i< totalGameRounds; i++){
+        roundResult = playRound();
+        showChoice();
+        showRoundWinner(roundResult);
+
+        switch(roundResult){
+            case 0:
+            case 3:
+                comScore++;
+                break;
+            case 1:
+                playerScore++;
+                break;
+            case 2:
+                break;
+            default:break;
+        }
+    }
+
+    alert('Your score: ' + playerScore + '\n'
+    + 'COMscore: ' + comScore);
+
+    if(playerScore > comChoice){
+        alert('Congrats ! You win !');
+    }
+    else if(comScore > playerScore){
+        alert('You lost. Better luck next time !');
+    }
+    else{
+        alert('The game ended in a DRAW !!');
+    }
 }
