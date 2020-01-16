@@ -21,6 +21,7 @@ function comPlay(){
     }
 }
 
+/*
 // process user selection
 function userPlay(userInput){
     switch(String(userInput).toUpperCase()){
@@ -39,14 +40,15 @@ function userPlay(userInput){
             break;
     }
 }
+*/
 
 // play a single round
 // return values:
 // 0: com wins, 1: player wins, 
 // 2:draw, 3:invalid user input(com wins)
-function playRound(playerSelection, comSelection){
+function playRound(e){
     comChoice = comPlay();
-    userChoice = userPlay(prompt("Please enter \'Rock\', \'Paper\' or \'Scissors\'"));
+    userChoice = e.target.id;
     console.log("user: " + userChoice + " COM: " + comChoice);
     switch(userChoice){
         case 'Rock':
@@ -121,7 +123,8 @@ function showRoundWinner(result){
     }
 }
 
-totalGameRounds = 5;
+/*
+//totalGameRounds = 5;
 
 // play multiple rounds and keep scores
 function game(){
@@ -160,3 +163,8 @@ function game(){
         alert('The game ended in a DRAW !!');
     }
 }
+*/
+
+//event listeners for each image
+const choiceImgs = Array.from(document.querySelectorAll('.choiceImg'));
+choiceImgs.forEach(choice => choice.addEventListener('click',playRound));
