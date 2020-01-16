@@ -1,6 +1,7 @@
 let randInt, comChoice, userChoice;
 let totalGameRounds;
 let roundResult, playerScore, comScore;
+let audio = new Audio('audio/kitten4.wav');
 
 // randomly return Rock, Paper or Scissors
 function comPlay(){
@@ -47,6 +48,8 @@ function userPlay(userInput){
 // 0: com wins, 1: player wins, 
 // 2:draw, 3:invalid user input(com wins)
 function playRound(e){
+    audio.currentTime = 0;
+    audio.play();
     comChoice = comPlay();
     userChoice = e.target.id;
     e.target.classList.add('chosen');
