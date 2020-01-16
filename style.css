@@ -3,6 +3,7 @@ html{
 }
 
 header{
+    width: 100%;
     text-align: center;
     font-weight: bold;
     padding: 0 0;
@@ -10,6 +11,8 @@ header{
     border: 0 0;
     font-size: 6.5vw;
     font-family: Consolas, monaco, monospace;
+    background: rgb(255, 255, 255, 0.8);
+    background-size: cover;
 }
 
 #intro{
@@ -28,6 +31,15 @@ header{
     text-align: center;
 }
 
+.choiceTxt{
+    display: inline-block;
+}
+
+.choiceTxt p{
+    font-family: Consolas, monaco, monospace;
+    font-weight: bold;
+}
+
 .choiceImg{
     outline: solid black;
     display: flexbox;
@@ -35,16 +47,15 @@ header{
     margin: 0 10px;
     transition: all 0.1s ease;
 }
-/*
+
 .choiceImg:hover{
     border: solid red;
-}*/
+}
 
 /*transition effect when clicked/touched*/
 .chosen{
     border: solid red;
     transform: scale(1.1);
-    border-color: blue;
     box-shadow: 0 0 1rem #ffc600;
 }
 
@@ -54,5 +65,41 @@ and (max-device-width : 480px) {
     .choiceImg{
         width: 80px;
         height: 80px;
+    }
+}
+
+.result{
+    display: inline;
+}
+
+#playerScore{
+    float: left;
+    padding-left: 100px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#comScore{
+    float: right;
+    padding-top: 10px;
+    padding-right: 100px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    #playerScore{
+        padding-left: 20px;
+    }
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    #comScore{
+        padding-right: 20px;
     }
 }
