@@ -33,6 +33,19 @@ header{
     display: flexbox;
     flex: auto;
     margin: 0 10px;
+    transition: all 0.1s ease;
+}
+/*
+.choiceImg:hover{
+    border: solid red;
+}*/
+
+/*transition effect when clicked/touched*/
+.chosen{
+    border: solid red;
+    transform: scale(1.1);
+    border-color: blue;
+    box-shadow: 0 0 1rem #ffc600;
 }
 
 @media only screen

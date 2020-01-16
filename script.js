@@ -49,6 +49,7 @@ function userPlay(userInput){
 function playRound(e){
     comChoice = comPlay();
     userChoice = e.target.id;
+    e.target.classList.add('chosen');
     console.log("user: " + userChoice + " COM: " + comChoice);
     switch(userChoice){
         case 'Rock':
@@ -165,6 +166,12 @@ function game(){
 }
 */
 
-//event listeners for each image
+function removeTransition(e){
+    if(e.propertyName !== 'transform') return;
+    this.classList.remove('chosen');
+}
+
+//event listeners for each image to play round and remove transition
 const choiceImgs = Array.from(document.querySelectorAll('.choiceImg'));
 choiceImgs.forEach(choice => choice.addEventListener('click',playRound));
+choiceImgs.forEach(choice => choice.addEventListener('transitionend',removeTransition));
