@@ -90,6 +90,11 @@ header{
     padding-left: 150px;
 }
 
+#roundResult #roundResultTxt{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
 #pChoiceResult{
     text-align: center;
     position: relative;
@@ -146,6 +151,11 @@ and (max-device-width : 480px) {
     .roundResult p{
         display: block;
         padding-left: 0;
+    }
+
+    #roundResult #roundResultTxt{
+        margin-top: 50px;
+        margin-bottom: 5px;
     }
     
     #pChoiceResult{
