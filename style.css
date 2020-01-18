@@ -69,7 +69,7 @@ and (max-device-width : 480px) {
 }
 
 .result{
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .roundResult{
@@ -81,8 +81,25 @@ and (max-device-width : 480px) {
 #pChoiceResult{
     text-align: center;
     position: relative;
-    width: 100%;
-    right: 20px;
+    right: 105px;
+    margin-bottom: 50px;
+}
+
+#cChoiceResult{
+    text-align: center;
+    position: relative;
+    right: 100px;
+    margin-bottom: 100px;
+}
+
+#pChoiceImg{
+    height: 80px;
+    width: 80px;
+}
+
+#cChoiceImg{
+    height: 80px;
+    width: 80px;
 }
 
 #playerScore{
@@ -107,12 +124,42 @@ and (max-device-width : 480px) {
     #playerScore{
         padding-left: 20px;
     }
-}
 
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
     #comScore{
         padding-right: 20px;
     }
+
+    .result{
+        margin-bottom: 30px;
+    }
+
+    .roundResult{
+        text-align: center;
+        position: relative;
+    }
+    
+    #pChoiceResult{
+        text-align: center;
+        position: relative;
+        right: 45px;
+        margin-bottom: 50px;
+    }
+    
+    #cChoiceResult{
+        text-align: center;
+        position: relative;
+        right: 50px;
+        margin-bottom: 100px;
+    }
+    
+    #pChoiceImg{
+        height: 50px;
+        width: 50px;
+    }
+    
+    #cChoiceImg{
+        height: 50px;
+        width: 50px;
+    }
 }
+
