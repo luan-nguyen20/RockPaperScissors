@@ -1,11 +1,17 @@
 let randInt, comChoice, userChoice;
-//let totalGameRounds;
-//let roundResult, playerScore, comScore;
 let audio = new Audio('audio/kitten4.wav');
 const pChoiceImg = document.querySelector('#pChoiceImg');
 const cChoiceImg = document.querySelector('#cChoiceImg');
-const roundResultTxt = document.querySelector('#roundResultTxt');
+const roundResultTxt = document.querySelector('.roundResultTxt');
 const resetBtn = document.querySelector('#resetBtn');
+
+//event listeners for each image to play round and remove transition
+const choiceImgs = Array.from(document.querySelectorAll('.choiceImg'));
+choiceImgs.forEach(choice => choice.addEventListener('click',playRound));
+choiceImgs.forEach(choice => choice.addEventListener('transitionend',removeTransition));
+
+//event listener for reset button
+resetBtn.addEventListener('click', reset);
 
 // randomly return Rock, Paper or Scissors
 function comPlay(){
@@ -115,12 +121,14 @@ function playRound(e){
     }
 
     if(playerScore >= 5){
-        alert('you win');
-        roundResultTxt.classList.add('gameResultTxt');
+        //alert('you win');
+        //roundResultTxt.classList.add('gameResultTxt');
+        choiceImgs.forEach(choice => choice.classList.add('noDisplay'));
     }
     else if(comScore >= 5){
-        alert('you lose');
-        roundResultTxt.classList.add('gameResultTxt');
+        //alert('you lose');
+        //roundResultTxt.classList.add('gameResultTxt');
+        choiceImgs.forEach(choice => choice.classList.add('noDisplay'));
     }
 }
 
@@ -132,6 +140,7 @@ function reset(){
     pChoiceImg.src = "";
     cChoiceImg.src = "";
     roundResultTxt.textContent = "";
+    choiceImgs.forEach(choice => choice.classList.remove('noDisplay'));
 }
 
 //update player and COM scores and edit DOM
@@ -147,10 +156,3 @@ function removeTransition(e){
     this.classList.remove('chosen');
 }
 
-//event listeners for each image to play round and remove transition
-const choiceImgs = Array.from(document.querySelectorAll('.choiceImg'));
-choiceImgs.forEach(choice => choice.addEventListener('click',playRound));
-choiceImgs.forEach(choice => choice.addEventListener('transitionend',removeTransition));
-
-//event listener for reset button
-resetBtn.addEventListener('click', reset);

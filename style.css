@@ -90,9 +90,9 @@ header{
     padding-left: 150px;
 }
 
-#roundResult #roundResultTxt{
+#roundResult .roundResultTxt{
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 
 #pChoiceResult{
@@ -117,6 +117,10 @@ header{
 #cChoiceImg{
     height: 80px;
     width: 80px;
+}
+
+.noDisplay{
+    visibility: hidden;
 }
 
 
@@ -153,7 +157,7 @@ and (max-device-width : 480px) {
         padding-left: 0;
     }
 
-    #roundResult #roundResultTxt{
+    #roundResult .roundResultTxt{
         margin-top: 50px;
         margin-bottom: 5px;
     }
