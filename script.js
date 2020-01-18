@@ -4,6 +4,7 @@ let randInt, comChoice, userChoice;
 let audio = new Audio('audio/kitten4.wav');
 const pChoiceImg = document.querySelector('#pChoiceImg');
 const cChoiceImg = document.querySelector('#cChoiceImg');
+const roundResultTxt = document.querySelector('#roundResultTxt');
 
 // randomly return Rock, Paper or Scissors
 function comPlay(){
@@ -66,6 +67,7 @@ function playRound(e){
                     //return 2;
                     //draw
                     cChoiceImg.src="images/rock.jpg";
+                    roundResultTxt.textContent = 'Draw';
                     break;
                 case 'Paper':
                     //return 0;
@@ -73,6 +75,7 @@ function playRound(e){
                     comScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/paper.jpg";
+                    roundResultTxt.textContent = 'You lose !';
                     break;
                 case 'Scissors':
                     //return 1;
@@ -80,6 +83,7 @@ function playRound(e){
                     playerScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/scissors.jpg";
+                    roundResultTxt.textContent = 'You win !';
                     break;
             }
             pChoiceImg.src = "images/rock.jpg";
@@ -92,11 +96,13 @@ function playRound(e){
                     playerScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/rock.jpg";
+                    roundResultTxt.textContent = 'You win !';
                     break;
                 case 'Paper':
                     //return 2;
                     //draw
                     cChoiceImg.src="images/paper.jpg";
+                    roundResultTxt.textContent = 'Draw';
                     break;
                 case 'Scissors':
                     //return 0;
@@ -104,6 +110,7 @@ function playRound(e){
                     comScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/scissors.jpg";
+                    roundResultTxt.textContent = 'You lose !';
                     break;
             }
             pChoiceImg.src = "images/paper.jpg";
@@ -116,6 +123,7 @@ function playRound(e){
                     comScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/rock.jpg";
+                    roundResultTxt.textContent = 'You lose !';
                     break;
                 case 'Paper':
                     //return 1;
@@ -123,11 +131,13 @@ function playRound(e){
                     playerScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/paper.jpg";
+                    roundResultTxt.textContent = 'You win !';
                     break;
                 case 'Scissors':
                     //return 2;
                     //draw
                     cChoiceImg.src="images/scissors.jpg";
+                    roundResultTxt.textContent = 'Draw';
                     break;
             }
             pChoiceImg.src = "images/scissors.jpg";
