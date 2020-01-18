@@ -139,7 +139,7 @@ function reset(){
     updateScores(playerScore,comScore);
     pChoiceImg.src = "";
     cChoiceImg.src = "";
-    roundResultTxt.textContent = "";
+    roundResultTxt.textContent = "Let's start !";
     choiceImgs.forEach(choice => choice.classList.remove('noDisplay'));
 }
 
