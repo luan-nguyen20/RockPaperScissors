@@ -63,6 +63,22 @@ header{
     margin-bottom: 100px;
 }
 
+#playerScore{
+    float: left;
+    padding-left: 200px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#comScore{
+    float: right;
+    padding-top: 10px;
+    padding-right: 200px;
+    text-align: center;
+    text-decoration: underline;
+}
+
 .roundResult{
     text-align: center;
     position: relative;
@@ -98,21 +114,7 @@ header{
     width: 80px;
 }
 
-#playerScore{
-    float: left;
-    padding-left: 200px;
-    padding-top: 10px;
-    text-align: center;
-    text-decoration: underline;
-}
 
-#comScore{
-    float: right;
-    padding-top: 10px;
-    padding-right: 200px;
-    text-align: center;
-    text-decoration: underline;
-}
 
 /*mobile*************************/
 @media only screen
@@ -123,16 +125,16 @@ and (max-device-width : 480px) {
         height: 80px;
     }
 
+    .result{
+        margin-bottom: 30px;
+    }
+
     #playerScore{
         padding-left: 20px;
     }
 
     #comScore{
         padding-right: 20px;
-    }
-
-    .result{
-        margin-bottom: 30px;
     }
 
     .roundResult{
