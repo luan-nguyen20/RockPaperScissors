@@ -1,7 +1,10 @@
 let randInt, comChoice, userChoice;
-let totalGameRounds;
-let roundResult, playerScore, comScore;
+//let totalGameRounds;
+//let roundResult, playerScore, comScore;
 let audio = new Audio('audio/kitten4.wav');
+const rockImg = document.querySelector('.rockImg');
+const paperImg = document.querySelector('.paperImg');
+const scissorsImg = document.querySelector('.scissorsImg');
 
 // randomly return Rock, Paper or Scissors
 function comPlay(){
@@ -47,6 +50,9 @@ function userPlay(userInput){
 // return values:
 // 0: com wins, 1: player wins, 
 // 2:draw, 3:invalid user input(com wins)
+let playerScore = 0;
+let comScore = 0;
+
 function playRound(e){
     audio.currentTime = 0;
     audio.play();
@@ -55,51 +61,89 @@ function playRound(e){
     e.target.classList.add('chosen');
     console.log("user: " + userChoice + " COM: " + comChoice);
     switch(userChoice){
-        case 'Rock':
+        case 'rockImg':
             switch(comChoice){
                 case 'Rock':
-                    return 2;
+                    //return 2;
+                    //draw
                     break;
                 case 'Paper':
-                    return 0;
+                    //return 0;
+                    //com wins
+                    comScore++;
+                    updateScores(playerScore,comScore);
                     break;
                 case 'Scissors':
-                    return 1;
+                    //return 1;
+                    //player wins
+                    playerScore++;
+                    updateScores(playerScore,comScore);
                     break;
             }
             break;
-        case 'Paper':
+        case 'paperImg':
             switch(comChoice){
                 case 'Rock':
-                    return 1;
+                    //return 1;
+                    //player wins
+                    playerScore++;
+                    updateScores(playerScore,comScore);
                     break;
                 case 'Paper':
-                    return 2;
+                    //return 2;
+                    //draw
                     break;
                 case 'Scissors':
-                    return 0;
+                    //return 0;
+                    //com wins
+                    comScore++;
+                    updateScores(playerScore,comScore);
                     break;
             }
             break;
-        case 'Scissors':
+        case 'scissorsImg':
             switch(comChoice){
                 case 'Rock':
-                    return 0;
+                    //return 0;
+                    //com wins
+                    comScore++;
+                    updateScores(playerScore,comScore);
                     break;
                 case 'Paper':
-                    return 1;
+                    //return 1;
+                    //player wins
+                    playerScore++;
+                    updateScores(playerScore,comScore);
                     break;
                 case 'Scissors':
-                    return 2;
+                    //return 2;
+                    //draw
                     break;
             }
             break;
         default:
-            return 3;
+            //return 3;
             break;
+    }
+
+    if(playerScore >= 5){
+        alert('you win');
+    }
+    else if(comScore >= 5){
+        alert('you lose');
     }
 }
 
+//reset scores
+function resetScores(){
+    playerScore = 0;
+    comScore = 0;
+}
+
+//call reset func when page load
+//window.onload = resetScores;
+
+/*
 // show user and COM choices
 function showChoice(){
     if(userChoice==='Invalid'){
@@ -109,7 +153,9 @@ function showChoice(){
         alert('You chose ' + userChoice + ' ! COM chose ' + comChoice + ' !');
     } 
 }
+*/
 
+/*
 // show round winner
 function showRoundWinner(result){
     switch(result){
@@ -126,11 +172,14 @@ function showRoundWinner(result){
         default:break;
     }
 }
+*/
 
-/*
+
 //totalGameRounds = 5;
 
+/*
 // play multiple rounds and keep scores
+let playerScore, comScore;
 function game(){
     playerScore = 0;
     comScore = 0;
@@ -168,6 +217,14 @@ function game(){
     }
 }
 */
+
+//update player and COM scores and edit DOM
+function updateScores(playerScore,comScore){
+    const pScoreSpan = document.querySelector('#playerScore');
+    const cScoreSpan = document.querySelector('#comScore');
+    pScoreSpan.textContent = 'Your score: ' + playerScore;
+    cScoreSpan.textContent = 'COM score: ' + comScore;
+}
 
 function removeTransition(e){
     if(e.propertyName !== 'transform') return;

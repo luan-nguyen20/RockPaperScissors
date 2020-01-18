@@ -69,12 +69,25 @@ and (max-device-width : 480px) {
 }
 
 .result{
-    display: inline;
+    margin-bottom: 50px;
+}
+
+.roundResult{
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+
+#pChoiceResult{
+    text-align: center;
+    position: relative;
+    width: 100%;
+    right: 20px;
 }
 
 #playerScore{
     float: left;
-    padding-left: 100px;
+    padding-left: 200px;
     padding-top: 10px;
     text-align: center;
     text-decoration: underline;
@@ -83,7 +96,7 @@ and (max-device-width : 480px) {
 #comScore{
     float: right;
     padding-top: 10px;
-    padding-right: 100px;
+    padding-right: 200px;
     text-align: center;
     text-decoration: underline;
 }
