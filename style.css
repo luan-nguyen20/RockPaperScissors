@@ -78,10 +78,15 @@ and (max-device-width : 480px) {
     top: 30px;
 }
 
+.roundResult p{
+    display: inline;
+    padding-left: 150px;
+}
+
 #pChoiceResult{
     text-align: center;
     position: relative;
-    right: 105px;
+    right: 95px;
     margin-bottom: 50px;
 }
 
@@ -136,6 +141,12 @@ and (max-device-width : 480px) {
     .roundResult{
         text-align: center;
         position: relative;
+        top: 30px;
+    }
+
+    .roundResult p{
+        display: block;
+        padding-left: 0;
     }
     
     #pChoiceResult{
