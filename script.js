@@ -26,31 +26,8 @@ function comPlay(){
     }
 }
 
-/*
-// process user selection
-function userPlay(userInput){
-    switch(String(userInput).toUpperCase()){
-        case 'ROCK':
-            return('Rock');
-            break;
-        case 'PAPER':
-            return('Paper');
-            break;
-        case 'SCISSORS':
-            return('Scissors');
-            break;
-        default:
-            alert("Please only enter \'Rock\', \'Paper\' or \'Scissors\'");
-            return('Invalid');
-            break;
-    }
-}
-*/
-
-// play a single round
-// return values:
-// 0: com wins, 1: player wins, 
-// 2:draw, 3:invalid user input(com wins)
+// play a round
+// keep scores
 let playerScore = 0;
 let comScore = 0;
 
@@ -65,13 +42,11 @@ function playRound(e){
         case 'rockImg':
             switch(comChoice){
                 case 'Rock':
-                    //return 2;
                     //draw
                     cChoiceImg.src="images/rock.jpg";
                     roundResultTxt.textContent = 'Draw';
                     break;
                 case 'Paper':
-                    //return 0;
                     //com wins
                     comScore++;
                     updateScores(playerScore,comScore);
@@ -79,7 +54,6 @@ function playRound(e){
                     roundResultTxt.textContent = 'You lose !';
                     break;
                 case 'Scissors':
-                    //return 1;
                     //player wins
                     playerScore++;
                     updateScores(playerScore,comScore);
@@ -92,7 +66,6 @@ function playRound(e){
         case 'paperImg':
             switch(comChoice){
                 case 'Rock':
-                    //return 1;
                     //player wins
                     playerScore++;
                     updateScores(playerScore,comScore);
@@ -100,13 +73,11 @@ function playRound(e){
                     roundResultTxt.textContent = 'You win !';
                     break;
                 case 'Paper':
-                    //return 2;
                     //draw
                     cChoiceImg.src="images/paper.jpg";
                     roundResultTxt.textContent = 'Draw';
                     break;
                 case 'Scissors':
-                    //return 0;
                     //com wins
                     comScore++;
                     updateScores(playerScore,comScore);
@@ -119,7 +90,6 @@ function playRound(e){
         case 'scissorsImg':
             switch(comChoice){
                 case 'Rock':
-                    //return 0;
                     //com wins
                     comScore++;
                     updateScores(playerScore,comScore);
@@ -127,7 +97,6 @@ function playRound(e){
                     roundResultTxt.textContent = 'You lose !';
                     break;
                 case 'Paper':
-                    //return 1;
                     //player wins
                     playerScore++;
                     updateScores(playerScore,comScore);
@@ -135,7 +104,6 @@ function playRound(e){
                     roundResultTxt.textContent = 'You win !';
                     break;
                 case 'Scissors':
-                    //return 2;
                     //draw
                     cChoiceImg.src="images/scissors.jpg";
                     roundResultTxt.textContent = 'Draw';
@@ -143,9 +111,7 @@ function playRound(e){
             }
             pChoiceImg.src = "images/scissors.jpg";
             break;
-        default:
-            //return 3;
-            break;
+        default: break;
     }
 
     if(playerScore >= 5){
@@ -167,84 +133,6 @@ function reset(){
     cChoiceImg.src = "";
     roundResultTxt.textContent = "";
 }
-
-//call reset func when page load
-//window.onload = resetScores;
-
-/*
-// show user and COM choices
-function showChoice(){
-    if(userChoice==='Invalid'){
-        alert('You entered an invalid choice !');
-    }
-    else{
-        alert('You chose ' + userChoice + ' ! COM chose ' + comChoice + ' !');
-    } 
-}
-*/
-
-/*
-// show round winner
-function showRoundWinner(result){
-    switch(result){
-        case 0:
-        case 3:
-            alert('COM wins !');
-            break;
-        case 1:
-            alert('You win !');
-            break;
-        case 2:
-            alert('DRAW !!');
-            break;
-        default:break;
-    }
-}
-*/
-
-
-//totalGameRounds = 5;
-
-/*
-// play multiple rounds and keep scores
-let playerScore, comScore;
-function game(){
-    playerScore = 0;
-    comScore = 0;
-    
-    for(i=0; i< totalGameRounds; i++){
-        roundResult = playRound();
-        showChoice();
-        showRoundWinner(roundResult);
-
-        switch(roundResult){
-            case 0:
-            case 3:
-                comScore++;
-                break;
-            case 1:
-                playerScore++;
-                break;
-            case 2:
-                break;
-            default:break;
-        }
-    }
-
-    alert('Your score: ' + playerScore + '\n'
-    + 'COMscore: ' + comScore);
-
-    if(playerScore > comChoice){
-        alert('Congrats ! You win !');
-    }
-    else if(comScore > playerScore){
-        alert('You lost. Better luck next time !');
-    }
-    else{
-        alert('The game ended in a DRAW !!');
-    }
-}
-*/
 
 //update player and COM scores and edit DOM
 function updateScores(playerScore,comScore){
