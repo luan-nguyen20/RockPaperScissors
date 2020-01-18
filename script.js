@@ -2,9 +2,8 @@ let randInt, comChoice, userChoice;
 //let totalGameRounds;
 //let roundResult, playerScore, comScore;
 let audio = new Audio('audio/kitten4.wav');
-const rockImg = document.querySelector('.rockImg');
-const paperImg = document.querySelector('.paperImg');
-const scissorsImg = document.querySelector('.scissorsImg');
+const pChoiceImg = document.querySelector('#pChoiceImg');
+const cChoiceImg = document.querySelector('#cChoiceImg');
 
 // randomly return Rock, Paper or Scissors
 function comPlay(){
@@ -80,6 +79,7 @@ function playRound(e){
                     updateScores(playerScore,comScore);
                     break;
             }
+            pChoiceImg.src = "images/rock.jpg";
             break;
         case 'paperImg':
             switch(comChoice){
@@ -100,6 +100,7 @@ function playRound(e){
                     updateScores(playerScore,comScore);
                     break;
             }
+            pChoiceImg.src = "images/paper.jpg";
             break;
         case 'scissorsImg':
             switch(comChoice){
@@ -120,6 +121,7 @@ function playRound(e){
                     //draw
                     break;
             }
+            pChoiceImg.src = "images/scissors.jpg";
             break;
         default:
             //return 3;
@@ -134,10 +136,12 @@ function playRound(e){
     }
 }
 
-//reset scores
-function resetScores(){
+//reset game
+function reset(){
     playerScore = 0;
     comScore = 0;
+    updateScores(playerScore,comScore);
+    pChoiceImg.src = "";
 }
 
 //call reset func when page load
