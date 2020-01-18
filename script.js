@@ -65,18 +65,21 @@ function playRound(e){
                 case 'Rock':
                     //return 2;
                     //draw
+                    cChoiceImg.src="images/rock.jpg";
                     break;
                 case 'Paper':
                     //return 0;
                     //com wins
                     comScore++;
                     updateScores(playerScore,comScore);
+                    cChoiceImg.src="images/paper.jpg";
                     break;
                 case 'Scissors':
                     //return 1;
                     //player wins
                     playerScore++;
                     updateScores(playerScore,comScore);
+                    cChoiceImg.src="images/scissors.jpg";
                     break;
             }
             pChoiceImg.src = "images/rock.jpg";
@@ -88,16 +91,19 @@ function playRound(e){
                     //player wins
                     playerScore++;
                     updateScores(playerScore,comScore);
+                    cChoiceImg.src="images/rock.jpg";
                     break;
                 case 'Paper':
                     //return 2;
                     //draw
+                    cChoiceImg.src="images/paper.jpg";
                     break;
                 case 'Scissors':
                     //return 0;
                     //com wins
                     comScore++;
                     updateScores(playerScore,comScore);
+                    cChoiceImg.src="images/scissors.jpg";
                     break;
             }
             pChoiceImg.src = "images/paper.jpg";
@@ -109,16 +115,19 @@ function playRound(e){
                     //com wins
                     comScore++;
                     updateScores(playerScore,comScore);
+                    cChoiceImg.src="images/rock.jpg";
                     break;
                 case 'Paper':
                     //return 1;
                     //player wins
                     playerScore++;
                     updateScores(playerScore,comScore);
+                    cChoiceImg.src="images/paper.jpg";
                     break;
                 case 'Scissors':
                     //return 2;
                     //draw
+                    cChoiceImg.src="images/scissors.jpg";
                     break;
             }
             pChoiceImg.src = "images/scissors.jpg";
@@ -142,6 +151,7 @@ function reset(){
     comScore = 0;
     updateScores(playerScore,comScore);
     pChoiceImg.src = "";
+    cChoiceImg.src = "";
 }
 
 //call reset func when page load
