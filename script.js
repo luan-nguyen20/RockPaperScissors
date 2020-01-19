@@ -1,5 +1,9 @@
 let randInt, comChoice, userChoice;
-let audio = new Audio('audio/kitten4.wav');
+const catSFX = new Audio('audio/kitten4.wav');
+const winRoundSFX = new Audio('audio/winRound.wav');
+const winGameSFX = new Audio('audio/winGame.wav');
+const loseRoundSFX = new Audio('audio/loseRound.wav');
+const loseGameSFX = new Audio('audio/loseGame.wav');
 const pChoiceImg = document.querySelector('#pChoiceImg');
 const cChoiceImg = document.querySelector('#cChoiceImg');
 const roundResultTxt = document.querySelector('.roundResultTxt');
@@ -38,8 +42,8 @@ let playerScore = 0;
 let comScore = 0;
 
 function playRound(e){
-    audio.currentTime = 0;
-    audio.play();
+    //audio.currentTime = 0;
+    //audio.play();
     comChoice = comPlay();
     userChoice = e.target.id;
     e.target.classList.add('chosen');
@@ -49,11 +53,15 @@ function playRound(e){
             switch(comChoice){
                 case 'Rock':
                     //draw
+                    catSFX.currentTime = 0;
+                    catSFX.play();
                     cChoiceImg.src="images/rock.jpg";
                     roundResultTxt.textContent = 'Draw';
                     break;
                 case 'Paper':
                     //com wins
+                    loseRoundSFX.currentTime = 0;
+                    loseRoundSFX.play();
                     comScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/paper.jpg";
@@ -61,6 +69,8 @@ function playRound(e){
                     break;
                 case 'Scissors':
                     //player wins
+                    winRoundSFX.currentTime = 0;
+                    winRoundSFX.play();
                     playerScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/scissors.jpg";
@@ -73,6 +83,8 @@ function playRound(e){
             switch(comChoice){
                 case 'Rock':
                     //player wins
+                    winRoundSFX.currentTime = 0;
+                    winRoundSFX.play();
                     playerScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/rock.jpg";
@@ -80,11 +92,15 @@ function playRound(e){
                     break;
                 case 'Paper':
                     //draw
+                    catSFX.currentTime = 0;
+                    catSFX.play();
                     cChoiceImg.src="images/paper.jpg";
                     roundResultTxt.textContent = 'Draw';
                     break;
                 case 'Scissors':
                     //com wins
+                    loseRoundSFX.currentTime = 0;
+                    loseRoundSFX.play();
                     comScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/scissors.jpg";
@@ -97,6 +113,8 @@ function playRound(e){
             switch(comChoice){
                 case 'Rock':
                     //com wins
+                    loseRoundSFX.currentTime = 0;
+                    loseRoundSFX.play();
                     comScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/rock.jpg";
@@ -104,6 +122,8 @@ function playRound(e){
                     break;
                 case 'Paper':
                     //player wins
+                    winRoundSFX.currentTime = 0;
+                    winRoundSFX.play();
                     playerScore++;
                     updateScores(playerScore,comScore);
                     cChoiceImg.src="images/paper.jpg";
@@ -111,6 +131,8 @@ function playRound(e){
                     break;
                 case 'Scissors':
                     //draw
+                    catSFX.currentTime = 0;
+                    catSFX.play();
                     cChoiceImg.src="images/scissors.jpg";
                     roundResultTxt.textContent = 'Draw';
                     break;
@@ -121,19 +143,21 @@ function playRound(e){
     }
 
     if(playerScore >= 5){
-        //alert('you win');
-        //roundResultTxt.classList.add('gameResultTxt');
+        winGameSFX.play();
+        roundResultTxt.classList.add('gameResultTxt');
         choiceImgs.forEach(choice => choice.classList.add('noDisplay'));
     }
     else if(comScore >= 5){
-        //alert('you lose');
-        //roundResultTxt.classList.add('gameResultTxt');
+        loseGameSFX.play();
+        roundResultTxt.classList.add('gameResultTxt');
         choiceImgs.forEach(choice => choice.classList.add('noDisplay'));
     }
 }
 
 //reset game
 function reset(){
+    catSFX.currentTime = 0;
+    catSFX.play();
     playerScore = 0;
     comScore = 0;
     updateScores(playerScore,comScore);
@@ -141,6 +165,7 @@ function reset(){
     cChoiceImg.src = "";
     roundResultTxt.textContent = "Let's start !";
     choiceImgs.forEach(choice => choice.classList.remove('noDisplay'));
+    roundResultTxt.classList.remove('gameResultTxt');
 }
 
 //update player and COM scores and edit DOM
