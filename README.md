@@ -1,1 +1,1 @@
-Rock Paper Scissors game (in progress)
+Rock Paper Scissors game
