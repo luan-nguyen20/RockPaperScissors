@@ -14,8 +14,9 @@ const choiceImgs = Array.from(document.querySelectorAll('.choiceImg'));
 choiceImgs.forEach(choice => choice.addEventListener('click',playRound));
 choiceImgs.forEach(choice => choice.addEventListener('transitionend',removeTransition));
 
-//event listener for reset button
+//event listeners for reset button
 resetBtn.addEventListener('click', reset);
+resetBtn.addEventListener('transitionend',removeTransition);
 
 // randomly return Rock, Paper or Scissors
 function comPlay(){
@@ -156,6 +157,7 @@ function playRound(e){
 
 //reset game
 function reset(){
+    resetBtn.classList.add('chosen');
     catSFX.currentTime = 0;
     catSFX.play();
     playerScore = 0;

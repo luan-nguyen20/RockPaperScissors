@@ -124,6 +124,10 @@ header{
     width: 80px;
 }
 
+#resetBtn{
+    transition: all 0.1s ease;
+}
+
 .noDisplay{
     visibility: hidden;
 }
@@ -133,28 +137,75 @@ header{
 /*mobile*************************/
 @media only screen
 and (min-device-width : 320px)
-and (max-device-width : 480px) {
+and (max-device-width : 480px)
+{
+    header{
+        font-size: 9vw;
+    }
+    
+    #intro{
+        font-size: 7vw;
+    }
+    
+    #makeYourChoice{
+        font-size: 7vw;
+    }
+    
     .choiceImg{
-        width: 80px;
-        height: 80px;
+        margin-top: 100px;
+        width: 250px;
+        height: 250px;
+    }
+    
+    .choiceTxt p{
+    font-size: 50px;
     }
 
     .result{
-        margin-bottom: 30px;
+        margin-top: 70px;
+        margin-bottom: 150px;
     }
 
     #playerScore{
-        padding-left: 20px;
+        padding-left: 100px;
+        font-size: 40px;
     }
 
     #comScore{
-        padding-right: 20px;
+        padding-right: 100px;
+        font-size: 40px;
+    }
+    
+    #pChoiceResult{
+        text-align: center;
+        position: relative;
+        right: 45px;
+        margin-bottom: 50px;
+        font-size: 50px;
+    }
+    
+    #cChoiceResult{
+        text-align: center;
+        position: relative;
+        right: 50px;
+        margin-bottom: 100px;
+        font-size: 50px;
+    }
+    
+    #pChoiceImg{
+        height: 120px;
+        width: 120px;
+    }
+    
+    #cChoiceImg{
+        height: 120px;
+        width: 120px;
     }
 
     .roundResult{
         text-align: center;
         position: relative;
-        top: 30px;
+        top: 60px;
     }
 
     .roundResult p{
@@ -165,6 +216,64 @@ and (max-device-width : 480px) {
     #roundResult .roundResultTxt{
         margin-top: 50px;
         margin-bottom: 5px;
+        font-size: 200px;
+    }
+    
+    #resetBtn{
+        width: 500px;
+        height: 150px;
+        font-size: 50px;
+    }
+}
+/*mobile*************************/
+
+
+/*tablet*************************/
+@media only screen
+and (min-device-width : 760px)
+and (max-device-width : 1024px)
+{
+    header{
+        font-size: 9vw;
+    }
+    
+    #intro{
+        font-size: 7vw;
+    }
+    
+    #intro p{
+        margin-top: 5px;
+    }
+    
+    #makeYourChoice{
+        font-size: 6vw;
+        margin-top: -30px;
+    }
+    
+    .choiceImg{
+        margin-top: -30px;
+        width: 250px;
+        height: 250px;
+    }
+    
+    .choiceTxt p{
+        font-size: 50px;
+        margin-top: 5px;
+    }
+
+    .result{
+        margin-top: -60px;
+        margin-bottom: 60px;
+    }
+
+    #playerScore{
+        padding-left: 100px;
+        font-size: 40px;
+    }
+
+    #comScore{
+        padding-right: 100px;
+        font-size: 40px;
     }
     
     #pChoiceResult{
@@ -172,6 +281,7 @@ and (max-device-width : 480px) {
         position: relative;
         right: 45px;
         margin-bottom: 50px;
+        font-size: 50px;
     }
     
     #cChoiceResult{
@@ -179,18 +289,42 @@ and (max-device-width : 480px) {
         position: relative;
         right: 50px;
         margin-bottom: 100px;
+        font-size: 50px;
     }
     
     #pChoiceImg{
-        height: 50px;
-        width: 50px;
+        height: 100px;
+        width: 100px;
     }
     
     #cChoiceImg{
-        height: 50px;
-        width: 50px;
+        height: 100px;
+        width: 100px;
+    }
+
+    .roundResult{
+        text-align: center;
+        position: relative;
+        top: 5px;
+    }
+
+    .roundResult p{
+        display: block;
+        padding-left: 0;
+    }
+
+    #roundResult .roundResultTxt{
+        margin-top: -70px;
+        margin-bottom: 5px;
+        font-size: 150px;
+    }
+    
+    #resetBtn{
+        width: 450px;
+        height: 100px;
+        font-size: 50px;
     }
 }
-/*mobile*************************/
+/*tablet*************************/
 
 
